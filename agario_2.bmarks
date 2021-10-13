@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="figury.h" open="0" top="0" tabpos="2">
-		<Cursor position="414" topLine="1" />
-		<BrowseMarks positions="373,3053" />
-		<Book_Marks positions="" />
+	<File name="dviz.h" open="1" top="0" tabpos="3">
+		<Cursor position="1366" topLine="3" />
+		<BrowseMarks positions="1360" />
 	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="1091" topLine="0" />
-		<BrowseMarks positions="1005,1222" />
-		<Book_Marks positions="" />
+	<File name="menu.h" open="1" top="0" tabpos="4">
+		<Cursor position="425" topLine="3" />
+		<BrowseMarks positions="425" />
 	</File>
-	<File name="menu.h" open="0" top="0" tabpos="0">
-		<Cursor position="1384" topLine="39" />
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1209" topLine="5" />
+		<BrowseMarks positions="965,986,988,1214,1229" />
 	</File>
-	<File name="dviz.h" open="0" top="0" tabpos="3">
-		<Cursor position="224" topLine="0" />
-		<BrowseMarks positions="" />
+	<File name="figury.h" open="1" top="1" tabpos="2">
+		<Cursor position="286" topLine="0" />
+		<BrowseMarks positions="280,417,1096,1099,1119,1192,1687,1702,3371" />
 		<Book_Marks positions="" />
 	</File>
 </BrowseTracker_layout_file>

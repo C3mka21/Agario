@@ -1,3 +1,5 @@
+#ifndef __MENU_H__
+#define __MENU_H__
 #include "TxLib.h"
 
 int x=1500, y=750;
@@ -69,3 +71,4 @@ void check_menu()
 }
 
 
+#endif
