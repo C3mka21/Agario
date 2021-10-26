@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1634147356 source:c:\users\asus\desktop\agario_2\main.cpp
+1634201243 source:c:\users\asus\desktop\agario_2\main.cpp
 	"menu.h"
 	"dviz.h"
 
-1634105185 c:\users\asus\desktop\agario_2\menu.h
+1634194152 c:\users\asus\desktop\agario_2\menu.h
 	"TxLib.h"
 
 1634145167 c:\users\asus\desktop\agario_2\figury.h
 	"dviz.h"
 
-1634146490 c:\users\asus\desktop\agario_2\dviz.h
+1634201468 c:\users\asus\desktop\agario_2\dviz.h
 	"TXLib.h"
 

@@ -26,15 +26,17 @@ typedef struct // menu_t
     COLORREF text;
     int x;
     char nazv[400000];
+    char nazv_2[400000];
 } menu_t;
 
-menu_t tb1 ={x/2-100,y/2,x/2+100,y/2+100,3,TX_WHITE,TX_BLACK,TX_BLACK,40,"START"};
-
+menu_t tb1 ={x/2-100,y/2,x/2+100,y/2+100,3,TX_WHITE,TX_BLACK,TX_BLACK,40,"START","LET'S GO BROOOOOOO"};
+menu_t tb2= {x/2-100,y/2-100,x/2+100,y/2,3,TX_WHITE,TX_BLACK,TX_BLACK,40,"SETTINGS","WE CAN HELP RETURN YOUR MUM"};
 void menu(menu_t* tb, mouse_t* mt);
 void mouseXYCLICK(mouse_t* mt);
 void check_menu();
 
-/////////////////////////////////////////
+///////////////////////////////////////// \
+
 void mouseXYCLICK(mouse_t* mt)
 {
     mt->x = txMouseX();
@@ -57,6 +59,7 @@ void menu(menu_t* tb, mouse_t* mt)
     {
         mt->check=true;
         txClear();
+        txTextOut ((tb->x2-tb->x1)/2+tb->x1-150, (tb->y2-tb->y1)/2+tb->y1-25,tb->nazv_2);
     }
     else mt->lmbclick = false;
 }
@@ -67,6 +70,7 @@ void check_menu()
     {
         mouseXYCLICK(&mt1);
         menu(&tb1,&mt1);
+        menu(&tb2,&mt1);
     }
 }
 

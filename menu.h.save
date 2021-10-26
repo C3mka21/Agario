@@ -1,3 +1,5 @@
+#ifndef __MENU_H__
+#define __MENU_H__
 #include "TxLib.h"
 
 int x=1500, y=750;
@@ -10,7 +12,7 @@ typedef struct //mouse_t
     bool check;
 } mouse_t;
 
-mouse_t mt={0,0,false,false};
+mouse_t mt1 ={0,0,false,false};
 
 typedef struct // menu_t
 {
@@ -24,10 +26,11 @@ typedef struct // menu_t
     COLORREF text;
     int x;
     char nazv[400000];
+    char nazv_2[400000];
 } menu_t;
 
-menu_t tb1 ={x/2-100,y/2,x/2+100,y/2+100,3,TX_WHITE,TX_BLACK,TX_BLACK,40,"START"};
-
+menu_t tb1 ={x/2-100,y/2,x/2+100,y/2+100,3,TX_WHITE,TX_BLACK,TX_BLACK,40,"START","LET'S GO BROOOOOOO"};
+menu_t tb2={x/2-100,y/2-200,x/2+100,y/2,3,TX_WHITE,TX_BLACK,TX_BLACK,40,"SETTINGS","
 void menu(menu_t* tb, mouse_t* mt);
 void mouseXYCLICK(mouse_t* mt);
 void check_menu();
@@ -55,17 +58,19 @@ void menu(menu_t* tb, mouse_t* mt)
     {
         mt->check=true;
         txClear();
+        txTextOut ((tb->x2-tb->x1)/2+tb->x1-150, (tb->y2-tb->y1)/2+tb->y1-25,tb->nazv_2);
     }
     else mt->lmbclick = false;
 }
 
 void check_menu()
 {
-    while (mt.check==false)
+    while (mt1.check==false)
     {
-        mouseXYCLICK(&mt);
-        menu(&tb,&mt);
+        mouseXYCLICK(&mt1);
+        menu(&tb1,&mt1);
     }
 }
 
 
+#endif

@@ -33,7 +33,6 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="dviz.h" />
-		<Unit filename="figury.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.h" />
 		<Extensions>

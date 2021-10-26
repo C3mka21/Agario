@@ -1,6 +1,7 @@
 #ifndef __DVIZ_H__
 #define __DVIZ_H__
 #include "TXLib.h"
+typedef int postnikov;
 
 const int n=500;
 
@@ -34,20 +35,36 @@ typedef struct // box_t
     int x;
 } box_t;
 
+typedef struct
+{
+    postnikov x; // положение персонажа на экране по ох
+    postnikov y; // положение персонажа на экране по оу
+    postnikov x1; // положение персонажа на источнике по ох
+    postnikov y1; // положение персонажа на источнике по оу
+    postnikov width; //длина спрайта одного персонажа
+    postnikov height; // высота спрайта одного персонажа
+    HDC photo; // указатель на загруженную картинку
+    double scalex; //сжатие спрайта по оси ох
+    double scaley; //сжатие спрайта по оси оу
+    COLORREF color; //цвет который стираеться со спрайта
+}person;
+
 void izm (ball_t* b, box_t rt);
-void eat(ball_t* b, ball_t* b1);
+void eat(ball_t* b, ball_t* b1,person* p);
 void bx (box_t rt);
-void shar(ball_t b);
+void shar(ball_t b, person p);
 //////////////////////////////////
 
-void eat(ball_t* b, ball_t* b1)
+void eat(ball_t* b, ball_t* b1, person* p)
 {
-    if((b->y-b1->y)*(b->y-b1->y)+(b->x-b1->x)*(b->x-b1->x)<=pow((b->r)+(b1->r),2) && b->r>b1->r)
+    if((b->y-b1->y)*(b->y-b1->y)+(b->x-b1->x)*(b->x-b1->x)<=pow((b->r)-(b1->r),2) && b->r>b1->r)
     {
         b1->m=0;
         b1->x=10000;
         b1->y=100000;
         b->r+=1;
+        p->scalex+=0.01;
+        p->scaley+=0.01;
     }
 }
 
@@ -79,11 +96,14 @@ void izm (ball_t* b, box_t rt)
     else b->x-=b->t;
 }
 
-void shar(ball_t b)
+void shar(ball_t b, person p)
 {
     txSetFillColor(b.shar);
     txSetColor(b.lin,b.t);
+    p.x=b.x-2*b.r;
+    p.y=b.y-2*b.r;
     txCircle(b.x,b.y,b.r);
+    Win32::TransparentBlt (txDC(), p.x, p.y, p.width*p.scalex, p.height*p.scaley, p.photo, p.x1, p.y1, p.width, p.height, p.color);
     txSetFillColor(TX_WHITE);
 }
 
