@@ -2,24 +2,51 @@
 #define __MOVEBALL_H__
 
 #include "Ball.hpp"
-#include <vector>
 
-class MoveBall : Ball
+class MoveBall : public Ball
 {
+private:
+	int W;
+	int A;
+	int S;
+	int D;
+	double v;
 public:
-	MoveBall(Coords, double, double, COLORREF, COLORREF);
+	MoveBall(Coords, double, COLORREF, COLORREF, int, int, int, int, double);
 	~MoveBall() = default;
-	virtual void update() override;
+	void move();
+	void update();
 };
 
-MoveBall::MoveBall(Coords _centre, double _radius, double _v, COLORREF _line, COLORREF _fill):
-		Ball(_centre, _radius, _v,_line, _fill) {}
-void MoveBall::update()
+MoveBall::MoveBall(Coords _centre, double _radius, COLORREF _line, COLORREF _fill, int _W, int _A, int _S, int _D, double _v):
+		 Ball(_centre, _radius, _line, _fill), W(_W), A(_A), S(_S), D(_D), v(_v) {}
+
+void MoveBall::move()
 {
-	if(GetAsyncKeyState(VK_LEFT))
+	if(GetAsyncKeyState(A))
 	{
 		centre.x-=v;
 	}
-	draw();
+	if(GetAsyncKeyState(D))
+	{
+		centre.x+=v;
+	}
+	if(GetAsyncKeyState(S))
+	{
+		centre.y+=v;
+	}
+	if(GetAsyncKeyState(W))
+	{
+		centre.y-=v;
+	}
+}
+
+void MoveBall::update()
+{
+	if(life==true)
+	{
+		move();
+		draw();
+	}
 }
 #endif

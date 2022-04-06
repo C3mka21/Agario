@@ -9,18 +9,24 @@ class Ball
 protected:
     Coords centre;
     double radius;
-    double v;
     COLORREF line;
     COLORREF fill;
+    bool life;
 public:
-    Ball(Coords, double, double, COLORREF, COLORREF);
+    Ball(Coords, double, COLORREF, COLORREF);
+    Ball();
     virtual ~Ball() = default;
     void draw() const;
-    virtual void update() = 0;
+    bool check(Coords ball, double r);
+    Coords getCentre() { return centre;};
+    double getRadius() { return radius;};
+    void setRadius(double r) { radius=r;};
 };
 
-Ball::Ball(Coords _centre, double _radius, double _v, COLORREF _line, COLORREF _fill):
-	centre(_centre), radius(_radius), v(_v), line(_line), fill(_fill) {}
+Ball::Ball(Coords _centre, double _radius, COLORREF _line, COLORREF _fill):
+	centre(_centre), radius(_radius), line(_line), fill(_fill), life(true) {}
+
+Ball::Ball() {}
 
 void Ball::draw() const
 {
@@ -28,6 +34,17 @@ void Ball::draw() const
 	txSetColor(line);
 	txCircle(centre.x, centre.y, radius);
 	txSetFillColor(TX_WHITE);
+}
+
+bool Ball::check(Coords ball, double r)
+{
+	if(distance(centre, ball) <= r + radius)
+	{
+		life=false;
+		return false;
+	}
+	return true;
+
 }
 
 #endif //__BALL_H__
