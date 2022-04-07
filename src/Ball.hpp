@@ -38,7 +38,7 @@ void Ball::draw() const
 
 bool Ball::check(Coords ball, double r)
 {
-	if(distance(centre, ball) <= r + radius)
+	if(distance(centre, ball) <= (r + radius)/2)
 	{
 		life=false;
 		return false;
