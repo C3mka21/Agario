@@ -9,6 +9,7 @@
 #define WINDOWX 1500
 #define WINDOWY 700
 #define WINRATIO WINDOWX/WINDOWY
+
 const int n = 300;
 
 int main(void)
@@ -19,7 +20,6 @@ int main(void)
 	srand(time(0));
 	MoveBall first_ball ( Coords {1000,350}, 10.0, TX_BLACK, TX_RED, VK_UP, VK_LEFT, VK_DOWN, VK_RIGHT, WINRATIO*2);
 	MoveBall second_ball( Coords {300, 400}, 10.0, TX_BLACK, TX_GREEN, 'W', 'A', 'S', 'D', WINRATIO*2);
-
 	Menu buttons ({{{WINDOWX/2 - 150, WINDOWY/2 - 50}, {WINDOWX/2 + 150, WINDOWY/2 + 25}}, TX_BLACK, TX_WHITE, "Press on this button,\n "
 			"if you want to start play"}, {{{WINDOWX - 150, 10}, {WINDOWX - 50, 40}}, TX_BLACK, TX_WHITE, "INFO"});
 	std:: vector <MiniBall> balls;
@@ -32,7 +32,6 @@ int main(void)
 	{
 		buttons.draw();
 		txSleep(10);
-
 		txClear();
 	}
 	txBegin();
@@ -72,6 +71,3 @@ int main(void)
 	txEnd();
 	return 0;
 }
-
-
-
