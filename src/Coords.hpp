@@ -1,7 +1,9 @@
 #ifndef __COORDS_H__
 #define __COORDS_H__
 
-#include <TXLib.h>
+#include <cmath>
+#include <limits>
+
 class Coords
 {
 public:
